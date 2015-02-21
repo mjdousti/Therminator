@@ -1,0 +1,779 @@
+<!-- 
+   
+   Copyright (C) 2014 Mohammad Javad Dousti, Qing Xie, and Massoud Pedram, SPORT lab, 
+   University of Southern California. All rights reserved.
+   
+   Please refer to the LICENSE file for terms of use.
+
+-->
+<?xml version="1.0" encoding="UTF-8"?>
+<device name="Samsung Galaxy S4">
+	<!-- Aspect ratio of the device body -->
+	<length>136.6e-3</length>
+	<width>69.8e-3</width>
+	<height>7.9e-3</height>
+	<!-- Ambient temperature in K -->
+	<temperature>298.15</temperature>
+	<!-- <power_trace_file>power_GS4_new.trace</power_trace_file> -->
+	
+	<materials>
+		<material name="silicon">
+			<!-- http://www.ioffe.rssi.ru/SVA/NSM/Semicond/Si/thermal.html -->
+			<!-- in W/(m-K) -->
+			<normal_conductivity>0.8</normal_conductivity>
+			<planar_conductivity>2</planar_conductivity>
+			<!-- Taken from Autodesk Simulation CFD Library -->
+			<!-- in J/(kg-K) -->
+			<specific_heat>867</specific_heat>
+			<density>2330</density>
+		</material>
+		<material name="air">
+			<!-- selected 40C
+				http://www.engineeringtoolbox.com/air-properties-d_156.html 
+			-->
+			<!-- in W/(m-K) -->
+			<normal_conductivity>0.04</normal_conductivity> <!-- reference: 0.0271 -->
+			<!-- in J/(m^3-K) -->
+			<specific_heat>1.005e3</specific_heat>
+			<density>1.127</density>
+		</material>
+		<material name="air2">
+			<!-- secondary path -->
+			<normal_conductivity>0.04</normal_conductivity> <!-- reference: 0.0271 -->
+			<!-- in J/(m^3-K) -->
+			<specific_heat>1.005e3</specific_heat>
+			<density>1.127</density>
+		</material>
+		<material name="air3">
+			<!-- secondary path -->
+			<normal_conductivity>0.1</normal_conductivity> <!-- reference: 0.0271 -->
+			<!-- in J/(m^3-K) -->
+			<specific_heat>1.005e3</specific_heat>
+			<density>1.127</density>
+		</material>
+		<material name="display">
+			<!-- Assuming Glass -->
+			<!-- Taken from Autodesk Simulation CFD Library -->
+			<!-- <normal_conductivity>0.5</normal_conductivity>  original value -->
+			<normal_conductivity>0.1</normal_conductivity>
+			<planar_conductivity>1.8</planar_conductivity>
+			<specific_heat>840</specific_heat>
+			<density>2700</density>
+		</material>
+		<material name="battery">
+		<!-- Taken average of Table V from "Thermal Properties of Lithium-Ion Battery and Components" -->
+			<normal_conductivity>0.3</normal_conductivity>
+			<planar_conductivity>15</planar_conductivity>
+			<specific_heat>880.8</specific_heat>
+			<density>2203</density>
+		</material>
+		<material name="gorilla glass 3">
+			<!-- Assuming Glass -->
+			<!-- Taken from Autodesk Simulation CFD Library -->
+			<!-- <normal_conductivity>0.78</normal_conductivity> original value--> 
+			<normal_conductivity>10</normal_conductivity>
+			<specific_heat>840</specific_heat>
+			<!-- Taken from Gorilla glass datasheet -->
+			<density>440</density>
+		</material>
+		<material name="pcb">
+			<!-- Taken from Autodesk Simulation CFD Library -->
+			<normal_conductivity>0.8</normal_conductivity>
+			<planar_conductivity>45</planar_conductivity>
+			<specific_heat>471</specific_heat>
+			<density>3430.8</density>
+		</material>
+		<material name="thermal paste">
+			<!-- http://unitedadhesives.com/datasheets/TG2730-Datasheet.pdf -->
+			<normal_conductivity>2</normal_conductivity>
+			<density>1600</density>
+			<specific_heat></specific_heat>			
+		</material>
+		<material name="plastic">
+			<!-- Acrylic plastic: Ref: http://www.engineeringtoolbox.com/thermal-conductivity-plastics-d_1786.html -->
+			<normal_conductivity>3</normal_conductivity>
+			<!-- http://www.scribd.com/doc/8637812/Acrylic-Material-Data-from-PARSGLASS -->
+			<specific_heat>1470</specific_heat>
+			<density>1180</density>
+		</material>
+		<material name="aluminium">
+			<!-- Just a guess about the type of aluminium
+				http://en.wikipedia.org/wiki/2024_aluminium_alloy
+				W/m-k
+			-->
+			<normal_conductivity>152</normal_conductivity>
+			<density>2780</density>
+			<!-- Reference:
+				http://asm.matweb.com/search/SpecificMaterial.asp?bassnum=MA6061t6
+				J/kg-K
+			-->
+			<specific_heat>896</specific_heat>
+		</material>		
+	</materials>
+	<floorplans>
+		<!-- Note: the X & Y are relative values in the floorplan assuming that the bottom-left corner is designated as (0,0) -->	<!--http://www.chipworks.com/en/technical-competitive-analysis/resources/blog/qualcomm-snapdragon-800-and-rockchip-rk3188-battle-of-the-foundries/ -->
+		<floorplan name="Snapdragon_600">
+			<tile name="cpu-core1">
+				<!-- Aspect ratio of the tile -->
+				<length>2.8e-3</length>
+				<width>2.1e-3</width>
+				<!-- Location of the bottom left corner of the tile -->
+				<x>5e-3</x>
+				<y>0.6e-3</y>
+			</tile>
+			<tile name="cpu-core2">
+				<!-- Aspect ratio of the tile -->
+				<length>2.8e-3</length>
+				<width>2.1e-3</width>
+				<!-- Location of the bottom left corner of the tile -->
+				<x>5e-3</x>
+				<y>2.7e-3</y>
+			</tile>
+			<tile name="cpu-core3">
+				<!-- Aspect ratio of the tile -->
+				<length>2.8e-3</length>
+				<width>2.1e-3</width>
+				<!-- Location of the bottom left corner of the tile -->
+				<x>7.8e-3</x>
+				<y>0.6e-3</y>
+			</tile>
+			<tile name="cpu-core4">
+				<!-- Aspect ratio of the tile -->
+				<length>2.8e-3</length>
+				<width>2.1e-3</width>
+				<!-- Location of the bottom left corner of the tile -->
+				<x>7.8e-3</x>
+				<y>2.7e-3</y>
+			</tile>
+			<tile name="gpu">
+				<!-- Aspect ratio of the tile -->
+				<length>3.3e-3</length>
+				<width>5.1e-3</width>
+				<!-- Location of the bottom left corner of the tile -->
+				<x>1.7e-3</x>
+				<y>6.0e-3</y>
+			</tile>
+			<tile name="rest-nw">
+				<!-- Aspect ratio of the tile -->
+				<length>1.7e-3</length>
+				<width>5.1e-3</width>
+				<!-- Location of the bottom left corner of the tile -->
+				<x>0e-3</x>
+				<y>6.0e-3</y>
+			</tile>
+			<tile name="rest-ne">
+				<!-- Aspect ratio of the tile -->
+				<length>5.6e-3</length>
+				<width>6.3e-3</width>
+				<!-- Location of the bottom left corner of the tile -->
+				<x>5e-3</x>
+				<y>4.8e-3</y>
+			</tile>
+			<tile name="rest-sw">
+				<!-- Aspect ratio of the tile -->
+				<length>5e-3</length>
+				<width>6e-3</width>
+				<!-- Location of the bottom left corner of the tile -->
+				<x>0e-3</x>
+				<y>0e-3</y>
+			</tile>
+			<tile name="rest-se">
+				<!-- Aspect ratio of the tile -->
+				<length>5.6e-3</length>
+				<width>0.6e-3</width>
+				<!-- Location of the bottom left corner of the tile -->
+				<x>5e-3</x>
+				<y>0e-3</y>
+			</tile>
+		</floorplan>
+	</floorplans>
+	<components>
+		<component name="Snapdragon_600">
+			<!-- Type of the material used in component -->
+			<material>silicon</material>
+			<!-- Does it have a floorplan? -->
+			<!-- <floorplan>Snapdragon_600</floorplan> -->
+			<!-- Generates power? -->
+			<power gen="yes">
+				<fill>no</fill>
+			</power>
+			<lateral_connectivity>yes</lateral_connectivity>
+			<!-- Taken from here:
+				http://www.chipworks.com/en/technical-competitive-analysis/resources/blog/inside-the-samsung-galaxy-s4/ 
+			-->
+			<length>10.6e-3</length>
+			<width>11.1e-3</width>
+			<height>0.7e-3</height> 	<!--from MDP tAP:tDRAM = 3:2, let them have a total thickness of 1.2mm -->
+			<!-- Location of the bottom left corner of the component -->
+			<x>85.6e-3</x>
+			<y>28.8e-3</y>
+			<z>4.4e-3</z>
+			<resolution>
+				<width>6</width>
+				<length>6</length>
+				<height>3</height>
+			</resolution>
+		</component>	
+		<component name="DRAM">
+			<material>silicon</material>
+			<power gen="yes">
+				<fill>yes</fill>
+				<filling_material>thermal paste</filling_material>
+			</power>
+			<lateral_connectivity>yes</lateral_connectivity>
+			<length>10.6e-3</length>
+			<width>11.1e-3</width>
+			<height>0.4e-3</height>	<!--from MDP tAP:tDRAM = 3:2, let them have a total thickness of 1.2mm -->
+			<x>85.6e-3</x>
+			<y>28.8e-3</y>
+			<z>5.2e-3</z>
+			<resolution>
+				<width>5</width>
+				<length>5</length>
+				<height>2</height>
+			</resolution>			
+		</component>
+		<component name="abAPDRAM">
+			<material>air3</material>
+			<power gen="no">
+			</power>
+			<lateral_connectivity>yes</lateral_connectivity>
+			<length>10.6e-3</length>
+			<width>11.1e-3</width>
+			<height>0.1e-3</height>	<!--from MDP tAP:tDRAM = 3:2, let them have a total thickness of 1.2mm -->
+			<x>85.6e-3</x>
+			<y>28.8e-3</y>
+			<z>5.1e-3</z>
+			<resolution>
+				<width>5</width>
+				<length>5</length>
+				<height>1</height>
+			</resolution>			
+		</component>			
+		<component name="Display-Glass">
+			<!-- Type of the material used in component -->
+			<material>gorilla glass 3</material>
+			<!-- Generates power? -->
+			<power gen="no">
+			</power>
+			<lateral_connectivity>yes</lateral_connectivity>
+			<!-- Assumed to have the same size as the device body -->
+			<length>135.6e-3</length>
+			<width>68.8e-3</width>
+			<!-- Taken from 
+				http://appleinsider.com/articles/12/01/10/ces_corning_gorilla_glass_2_is_08mm_thick_withstands_121_pounds_of_pressure
+				UPDATE: from measurement.
+			-->
+			<height>0.70e-3</height>
+			<!-- Location of the bottom left corner of the component -->
+			<x>0.5e-3</x>
+			<y>0.5e-3</y>
+			<z>7.2e-3</z> <!--from MDP-->
+			<resolution>
+				<width>15</width>
+				<length>20</length>
+				<height>2</height>
+			</resolution>			
+		</component>	
+		<component name="Display">
+			<!-- Type of the material used in component -->
+			<material>display</material>
+			<!-- Generates power? -->
+			<power gen="yes">
+				<fill>no</fill>
+			</power>
+			<lateral_connectivity>yes</lateral_connectivity>
+			<!-- Measured from Visio -->
+			<length>111.4e-3</length>
+			<width>63.6e-3</width>
+			<height>1.06e-3</height>
+			<!-- Location of the bottom left corner of the component -->
+			<x>12.5e-3</x>
+			<y>3.1e-3</y>
+			<z>6.14e-3</z>
+			<resolution>
+				<width>15</width>
+				<length>20</length>
+				<height>2</height>
+			</resolution>			
+		</component>	
+		<component name="Battery">
+			<!-- Type of the material used in component -->
+			<material>battery</material>
+			<!-- Generates power? -->
+			<power gen="yes">
+				<fill>yes</fill>
+				<filling_material>air</filling_material>
+			</power>
+			<lateral_connectivity>yes</lateral_connectivity>
+			<!--Measured using Visio -->
+			<length>63.0e-3</length>
+			<width>56.9e-3</width>
+			<!-- Must be verified through the measurement -->
+			<height>4.92e-3</height>
+			<!-- Location of the bottom left corner of the component -->
+			<x>18.9e-3</x>
+			<y>6e-3</y>
+			<z>1e-3</z>
+			<resolution>
+				<width>15</width>
+				<length>20</length>
+				<height>3</height>
+			</resolution>			
+		</component>	
+		<component name="Main Board">
+			<!-- Type of the material used in component -->
+			<material>pcb</material>
+			<!-- Generates power? -->
+			<power gen="no"/>
+			<lateral_connectivity>yes</lateral_connectivity>
+			<length>50.1e-3</length>
+			<width>66.6e-3</width>
+			<height>1.4e-3</height>    <!--from MDP-->
+			<!-- Location of the bottom left corner of the component -->
+			<x>81.9e-3</x>
+			<y>1.6e-3</y>
+			<z>3.0e-3</z>
+			<resolution>
+				<width>20</width>
+				<length>30</length>
+				<height>2</height>
+			</resolution>
+		</component>
+		<component name="4G-LTE">
+			<!-- Type of the material used in component -->
+			<material>silicon</material>
+			<!-- Generates power? -->
+			<power gen="yes">
+				<fill>yes</fill>
+				<filling_material>thermal paste</filling_material>
+			</power>
+			<lateral_connectivity>yes</lateral_connectivity>
+			<length>9.7e-3</length>
+			<width>9.7e-3</width>
+			<height>1.1e-3</height> <!-- from MDP, estimated-->
+			<!-- Location of the bottom left corner of the component -->
+			<x>101.3e-3</x>
+			<y>28.8e-3</y>
+			<z>4.4e-3</z>
+			<resolution>
+				<width>4</width>
+				<length>4</length>
+				<height>2</height>
+			</resolution>			
+		</component>
+		<component name="eMMC">
+			<material>silicon</material>
+			<power gen="yes">
+				<fill>yes</fill>
+				<filling_material>thermal paste</filling_material>
+			</power>
+			<lateral_connectivity>yes</lateral_connectivity>
+			<length>11.5e-3</length>
+			<width>10.4e-3</width>
+			<height>1.1e-3</height> <!--from MDP-->
+			<x>85.6e-3</x>
+			<y>45.2e-3</y>
+			<z>4.4e-3</z>
+			<resolution>
+				<width>4</width>
+				<length>4</length>
+				<height>2</height>
+			</resolution>			
+		</component>
+		<component name="WiFi">
+			<material>silicon</material>
+			<power gen="yes">
+				<fill>yes</fill>
+				<filling_material>thermal paste</filling_material>
+			</power>
+			<lateral_connectivity>yes</lateral_connectivity>
+			<length>9.7e-3</length>
+			<width>6.0e-3</width>
+			<height>0.9e-3</height> <!--from MDP-->
+			<x>94.9e-3</x>
+			<y>14.5e-3</y>
+			<z>4.4e-3</z>
+			<resolution>
+				<width>4</width>
+				<length>4</length>
+				<height>2</height>
+			</resolution>
+		</component>
+		<component name="AudioCODEC">
+			<material>silicon</material>
+			<power gen="yes">
+				<fill>yes</fill>
+				<filling_material>thermal paste</filling_material>
+			</power>
+			<lateral_connectivity>yes</lateral_connectivity>
+			<length>4.1e-3</length>
+			<width>3.7e-3</width>
+			<height>1.1e-3</height> <!--from MDP, estimated -->
+			<x>111.7e-3</x>
+			<y>43.7e-3</y>
+			<z>4.4e-3</z>
+			<resolution>
+				<width>4</width>
+				<length>4</length>
+				<height>2</height>
+			</resolution>	
+		</component>
+		<component name="Rear Case">
+			<material>plastic</material>
+			<power gen="no"/>
+			<lateral_connectivity>yes</lateral_connectivity>
+			<!-- Assuming that the case covers all the back of the device
+				and has the same length and width as the device -->
+			<length>136.6e-3</length>
+			<width>69.8e-3</width>
+			<!-- by measurement -->
+			<height>1e-3</height>
+			<x>0</x>
+			<y>0</y>
+			<z>0</z>
+			<resolution>
+				<width>15</width>
+				<length>20</length>
+				<height>2</height>
+			</resolution>			
+		</component>		
+		<component name="Thick Metal">
+			<material>aluminium</material>
+			<power gen="no"/>
+			<lateral_connectivity>yes</lateral_connectivity>
+			<length>54.2e-3</length>
+			<width>68.8e-3</width>
+			<!-- by measurement -->
+			<height>0.39e-3</height>
+			<x>81.9e-3</x>
+			<y>0.5e-3</y>
+			<z>5.75e-3</z>
+			<resolution>
+				<width>10</width>
+				<length>10</length>
+				<height>2</height>
+			</resolution>			
+		</component>
+		<component name="Thin Metal">
+			<material>aluminium</material>
+			<power gen="no"/>
+			<lateral_connectivity>yes</lateral_connectivity>
+			<length>81.4e-3</length>
+			<width>68.8e-3</width>
+			<!-- by measurement -->
+			<height>0.22e-3</height>
+			<x>0.5e-3</x>
+			<y>0.5e-3</y>
+			<z>5.92e-3</z>
+			<resolution>
+				<width>10</width>
+				<length>10</length>
+				<height>2</height>
+			</resolution>			
+		</component>
+		
+		<component name="chassis-south">
+			<material>plastic</material>
+			<power gen="no"/>
+			<lateral_connectivity>yes</lateral_connectivity>
+			<length>0.5e-3</length>
+			<width>68.8e-3</width>
+			<!-- by measurement -->
+			<height>6.9e-3</height>
+			<x>0e-3</x>
+			<y>0.5e-3</y>
+			<z>1e-3</z>
+			<resolution> <!-- sits on the rear case -->
+				<width>10</width>
+				<length>1</length>
+				<height>2</height>
+			</resolution>
+		</component>
+		<component name="chassis-north">
+			<material>plastic</material>
+			<power gen="no"/>
+			<lateral_connectivity>yes</lateral_connectivity>
+			<length>0.5e-3</length>
+			<width>68.8e-3</width>
+			<!-- by measurement -->
+			<height>6.9e-3</height>
+			<x>136.1e-3</x>
+			<y>0.5e-3</y>
+			<z>1e-3</z>
+			<resolution> <!-- sits on the rear case -->
+				<width>10</width>
+				<length>1</length>
+				<height>2</height>
+			</resolution>
+		</component>
+			<component name="chassis-east">
+			<material>plastic</material>
+			<power gen="no"/>
+			<lateral_connectivity>yes</lateral_connectivity>
+			<length>136.6e-3</length>
+			<width>0.5e-3</width>
+			<!-- by measurement -->
+			<height>6.9e-3</height>
+			<x>0e-3</x>
+			<y>0e-3</y>
+			<z>1e-3</z>
+			<resolution> <!-- sits on the rear case -->
+				<width>1</width>
+				<length>10</length>
+				<height>2</height>
+			</resolution>
+		</component>
+		<component name="chassis-west">
+			<material>plastic</material>
+			<power gen="no"/>
+			<lateral_connectivity>yes</lateral_connectivity>
+			<length>136.6e-3</length>
+			<width>0.5e-3</width>
+			<!-- by measurement -->
+			<height>6.9e-3</height>
+			<x>0e-3</x>
+			<y>69.3e-3</y>
+			<z>1e-3</z>
+			<resolution> <!-- sits on the rear case -->
+				<width>1</width>
+				<length>10</length>
+				<height>2</height>
+			</resolution>
+		</component>
+		<component name="ab-displaymetal-north">
+			<material>air</material>
+			<power gen="no"/>
+			<lateral_connectivity>yes</lateral_connectivity>
+			<length>12.2e-3</length>
+			<width>68.8e-3</width>
+			<!-- by measurement -->
+			<height>1.06e-3</height>
+			<x>123.9e-3</x>
+			<y>0.5e-3</y>
+			<z>6.14e-3</z>
+			<resolution> <!-- sits on the rear case -->
+				<width>5</width>
+				<length>5</length>
+				<height>2</height>
+			</resolution>
+		</component>
+		<component name="ab-displaymetal-south">
+			<material>air</material>
+			<power gen="no"/>
+			<lateral_connectivity>yes</lateral_connectivity>
+			<length>12e-3</length>
+			<width>68.8e-3</width>
+			<!-- by measurement -->
+			<height>1.06e-3</height>
+			<x>0.5e-3</x>
+			<y>0.5e-3</y>
+			<z>6.14e-3</z>
+			<resolution> <!-- sits on the rear case -->
+				<width>5</width>
+				<length>5</length>
+				<height>2</height>
+			</resolution>
+		</component>
+		<component name="ab-pcbrc">
+			<material>air2</material>
+			<power gen="no"/>
+			<lateral_connectivity>yes</lateral_connectivity>
+			<length>54.2e-3</length>
+			<width>68.8e-3</width>
+			<!-- by measurement -->
+			<height>2e-3</height>
+			<x>81.9e-3</x>
+			<y>0.5e-3</y>
+			<z>1e-3</z>
+			<resolution> <!-- sits on the rear case -->
+				<width>5</width>
+				<length>5</length>
+				<height>2</height>
+			</resolution>
+		</component>
+		<component name="ab-batchassis">
+			<material>air</material>
+			<power gen="no"/>
+			<lateral_connectivity>yes</lateral_connectivity>
+			<length>18.4e-3</length>
+			<width>68.8e-3</width>
+			<!-- by measurement -->
+			<height>1e-3</height>
+			<x>0.5e-3</x>
+			<y>0.5e-3</y>
+			<z>1e-3</z>
+			<resolution> <!-- sits on the rear case -->
+				<width>5</width>
+				<length>5</length>
+				<height>2</height>
+			</resolution>
+		</component>
+		<component name="ab-b1">
+			<material>air</material>
+			<power gen="no"/>
+			<lateral_connectivity>yes</lateral_connectivity>
+			<length>3.7e-3</length>
+			<width>68.8e-3</width>
+			<!-- by measurement -->
+			<height>1.35e-3</height>
+			<x>81.9e-3</x>
+			<y>0.5e-3</y>
+			<z>4.4e-3</z>
+			<resolution> <!-- sits on the rear case -->
+				<width>5</width>
+				<length>1</length>
+				<height>2</height>
+			</resolution>
+		</component>
+		<component name="ab-b2">
+			<material>air</material>
+			<power gen="no"/>
+			<lateral_connectivity>yes</lateral_connectivity>
+			<length>9.3e-3</length>
+			<width>20e-3</width>
+			<!-- by measurement -->
+			<height>1.35e-3</height>
+			<x>85.6e-3</x>
+			<y>0.5e-3</y>
+			<z>4.4e-3</z>
+			<resolution> <!-- sits on the rear case -->
+				<width>2</width>
+				<length>1</length>
+				<height>2</height>
+			</resolution>
+		</component>
+		<component name="ab-b3">
+			<material>air</material>
+			<power gen="no"/>
+			<lateral_connectivity>yes</lateral_connectivity>
+			<length>31.5e-3</length>
+			<width>28.3e-3</width>
+			<!-- by measurement -->
+			<height>1.35e-3</height>
+			<x>104.6e-3</x>
+			<y>0.5e-3</y>
+			<z>4.4e-3</z>
+			<resolution> <!-- sits on the rear case -->
+				<width>5</width>
+				<length>5</length>
+				<height>2</height>
+			</resolution>
+		</component>
+		<component name="ab-b4">
+			<material>air</material>
+			<power gen="no"/>
+			<lateral_connectivity>yes</lateral_connectivity>
+			<length>19e-3</length>
+			<width>8.3e-3</width>
+			<!-- by measurement -->
+			<height>1.35e-3</height>
+			<x>85.6e-3</x>
+			<y>20.5e-3</y>
+			<z>4.4e-3</z>
+			<resolution> <!-- sits on the rear case -->
+				<width>4</width>
+				<length>2</length>
+				<height>2</height>
+			</resolution>
+		</component>
+		<component name="ab-b5">
+			<material>air</material>
+			<power gen="no"/>
+			<lateral_connectivity>yes</lateral_connectivity>
+			<length>5.1e-3</length>
+			<width>11.1e-3</width>
+			<!-- by measurement -->
+			<height>1.35e-3</height>
+			<x>96.2e-3</x>
+			<y>28.8e-3</y>
+			<z>4.4e-3</z>
+			<resolution> <!-- sits on the rear case -->
+				<width>1</width>
+				<length>2</length>
+				<height>2</height>
+			</resolution>
+		</component>
+		<component name="ab-b6">
+			<material>air</material>
+			<power gen="no"/>
+			<lateral_connectivity>yes</lateral_connectivity>
+			<length>26.1e-3</length>
+			<width>5.3e-3</width>
+			<!-- by measurement -->
+			<height>1.35e-3</height>
+			<x>85.6e-3</x>
+			<y>39.9e-3</y>
+			<z>4.4e-3</z>
+			<resolution> <!-- sits on the rear case -->
+				<width>5</width>
+				<length>2</length>
+				<height>2</height>
+			</resolution>
+		</component>
+		<component name="ab-b7">
+			<material>air</material>
+			<power gen="no"/>
+			<lateral_connectivity>yes</lateral_connectivity>
+			<length>14.6e-3</length>
+			<width>24.1e-3</width>
+			<!-- by measurement -->
+			<height>1.35e-3</height>
+			<x>97.1e-3</x>
+			<y>45.2e-3</y>
+			<z>4.4e-3</z>
+			<resolution> <!-- sits on the rear case -->
+				<width>4</width>
+				<length>5</length>
+				<height>2</height>
+			</resolution>
+		</component>
+		<component name="ab-b8">
+			<material>air</material>
+			<power gen="no"/>
+			<lateral_connectivity>yes</lateral_connectivity>
+			<length>20.3e-3</length>
+			<width>40.5e-3</width>
+			<!-- by measurement -->
+			<height>1.35e-3</height>
+			<x>115.8e-3</x>
+			<y>28.8e-3</y>
+			<z>4.4e-3</z>
+			<resolution> <!-- sits on the rear case -->
+				<width>5</width>
+				<length>10</length>
+				<height>2</height>
+			</resolution>
+		</component>
+		<!-- should be in the AP
+		<component name="AudioDSP">
+			<material>silicon</material>
+			<power>yes</power>
+			<lateral_connectivity>yes</lateral_connectivity>
+			<length></length>
+			<width></width>
+			<height></height>
+			<x></x>
+			<y></y>
+			<z></z>
+		</component>
+		-->
+		<!--
+		<component name="Camera">
+			<material>plastic</material>
+			<power>yes</power>
+			<lateral_connectivity>yes</lateral_connectivity>
+			<length>13.4e-3</length>
+			<width>12.3e-3</width>
+			<height></height>
+			<x>113.54e-3</x>
+			<y>28.14e-3</y>
+			<z>0</z>
+			<resolution>
+				<width>1</width>
+				<length>1</length>
+			</resolution>
+		</component>
+		-->
+	</components>
+</device>
