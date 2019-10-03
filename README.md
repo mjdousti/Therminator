@@ -1,21 +1,6 @@
 # Therminator: Thermal Simulator for Portable Devices
 
-## License
-Please refer to the [LICENSE](LICENSE) file.
-
-## Change Log
-```
-    Date   | Version |    Details
----------------------------------------------------------------------------------
- 9/24/2014 |  v1.00  | Initial release.
----------------------------------------------------------------------------------
-11/13/2014 |  v1.01  | - Adding CUDA library path to Makefile for GPU processing
-           |         | - Adding an assertion to check the components listed in
-           |         |    the power trace file against the design file
-```
-
-## Introduction
-### Therminator
+## Description
 Therminator is a compact thermal modeling-based component-level thermal 
 simulator that targets small form-factor mobile devices (such as 
 smartphones). It produces temperature maps for all components, including 
@@ -37,12 +22,6 @@ so that one can easily interface a performance-power simulator with Therminator.
 Section (6) of this README file explains the syntax of input files.
 
 More details about Therminator can be found in [1].
-
-### Developers
-* [Mohammad Javad Dousti](<dousti@usc.edu>)
-* [Qing Xie](<xqing@usc.edu>)
-* [Massoud Pedram](<pedram@usc.edu>)
-
 
 ## Requirements
 - GNU build utilities (GCC 4+ and Make). 
@@ -212,13 +191,20 @@ y
 -----------------------------------------------------> x
 ```
 
+## Developers
+* Mohammad Javad Dousti (<dousti@usc.edu>)
+* Qing Xie (<xqing@usc.edu>)
+* Massoud Pedram (<pedram@usc.edu>)
+
 ## Contact us
 If you have any question, find any bug, or encounter any problem when using
-Therminator, please contact [Mohammad Javad Dousti](<dousti@usc.edu>) or [Qing Xie](<xqing@usc.edu>).
-
+Therminator, please contact Mohammad Javad Dousti (<dousti@usc.edu>) or Qing Xie (<xqing@usc.edu>).
 
 ## Reference
 [1] Qing Xie, Mohammad Javad Dousti, and Massoud Pedram, "Therminator: A
 Thermal Simulator for Smartphones Producing Accurate Chip and Skin Temperature
 Maps", in *Proc. of the International Symposium on Low Power Electronics and 
 Design* (ISLPED), pp. 117-122, Aug, 2014.
+
+## License
+Please refer to the [LICENSE](LICENSE) file.
