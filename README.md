@@ -7,19 +7,19 @@ smartphones). It produces temperature maps for all components, including
 the application processor, battery, display, and other key device components, 
 as well as the skin of the device itself, with high accuracy and short runtime.
 
-Therminator takes two input files as explained next. The specs.xml file 
+Therminator takes two input files as explained next. The `specs.xml` file 
 describes the smartphone design, including components of interest and 
 their geometric dimensions (length, width, and thickness) and relative 
 positions. Therminator has a built-in library storing properties (i.e., 
 thermal conductivity, density, and specific heat) of common materials that 
 are used to manufacture smartphones. In addition, users can override
-these properties or specify new materials through the specs.xml file. The
-power.trace file provides the usage information (power consumption) of 
+these properties or specify new materials through the `specs.xml` file. The
+`power.trace` file provides the usage information (power consumption) of 
 those components that consume power and generate heat, e.g., ICs, battery,
 and display. The power.trace can be obtained through real measurements 
-or other power estimation tools/methods. power.trace is a separate file 
+or other power estimation tools/methods. `power.trace` is a separate file 
 so that one can easily interface a performance-power simulator with Therminator. 
-Section (6) of this README file explains the syntax of input files.
+Section (6) of this `README.md` file explains the syntax of input files.
 
 More details about Therminator can be found in [1].
 
@@ -32,8 +32,8 @@ More details about Therminator can be found in [1].
   Therminator allows a parallel computing feature that uses NVIDIA GPUs 
   to perform matrix computations. It is highly recommended to enable this 
   feature as it can significantly reduce the runtime. To utilize this feature, 
-  you need to download the [CULA Dense library] and install it on your machine. Next,
-	open the Makefile in the Therminator package and change lines 7 and 8, so that
+  you need to download the [CULA Dense library](http://www.culatools.com/dense/) and install it on your machine. Next,
+	open the `Makefile` in the Therminator package and change lines `7` and `8`, so that
 	`INCLUDE` and `LIBRARIES` variables point to the directory where CULA is installed.
   
 **Note**: Therminator can be run on Linux, Mac OS X and Windows given the above requirements 
@@ -102,24 +102,24 @@ Therminator
      * `coordinates` - numerical values. The coordinates (x, y, and z) are relative
         to the left-bottom corner of the device.
 
-     * `dimensions` -  numerical values. Length, width, and height of the component.
+     * `dimensions`: numerical values. Length, width, and height of the component.
 
-     * `materials` - The type of material shall be specified in the material
+     * `materials`: The type of material shall be specified in the material
         hierarchy.
 
-     * `power gen` (`yes`/`no`) - This property indicates whether this component
+     * `power gen` (`yes`/`no`): This property indicates whether this component
         consumes power and generates heat. If it is specified as `yes`, the power
         consumption shall be provided in the power trace file.
 
-     * `fill` - some IC chips have a thermal pad pasted on it. If the value is set
+     * `fill`: some IC chips have a thermal pad pasted on it. If the value is set
         as `yes`, Therminator will automatically calculates the free space above this
         component, and fills the free space with material specified in filling_material.
 
-     * `lateral_connectivity` - Many materials are orthotropic (i.e., having
+     * `lateral_connectivity`: Many materials are orthotropic (i.e., having
         different thermal conductivity along x, y, and z directions.) This tells
         Therminator whether this component is orthotropic.
 
-     * `resolution` - How many sub-components will Therminator divide this
+     * `resolution`: How many sub-components will Therminator divide this
         component to. You can specify resolution in x, y, and z directions. An
         automated approach for determining the resolution will be developed later.
 
@@ -156,7 +156,7 @@ Therminator outputs the temperature (in Celsius) of each sub-component in the
 output results file. In case of multiple layers specified in the z-direction, 
 results on the top have the highest z value.
 
-For example, the provided design for Snapdragon 600 in `package_GS4.xml `
+For example, the provided design for Snapdragon 600 in `package_GS4.xml`
 has the resolution of 6x6x3 (a total of 108 subcomponents). Running 
 ```
 $ ./therminator -d examples/package_GS4.xml -p examples/power_GS4.trace \
