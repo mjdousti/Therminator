@@ -75,7 +75,7 @@ Therminator
 ### Input files syntax
 1. Design specification file (`specs.xml`)
 
-    a) Two example files (package_GS4.xml and package_MDP.xml) have been provided
+    a) Two example files (`package_GS4.xml` and `package_MDP.xml`) have been provided
     along with the package of Therminator. You can basically follow them to specify
     a design specification.
 
@@ -90,7 +90,7 @@ Therminator
     developed later.
 
     d) The floorplan hierarchy is an optional input that specifies the
-    floorplan of some selected components. For example, in package_GS4.xml
+    floorplan of some selected components. For example, in `package_GS4.xml`
     file, a floor plan is specified for the Snapdragon_600 processor. The
     purpose of this is to provide higher accuracy of temperature maps, given
     more detailed information about processors, or other IC components.
