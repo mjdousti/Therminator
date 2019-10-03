@@ -1,17 +1,7 @@
 # Therminator: Thermal Simulator for Portable Devices
 
-## CONTENTS
-1. License
-2. Change log
-3. Introduction
-4. Requirements
-5. Installation
-6. Usage
-7. Contact us
-8. Reference
-
 ## License
-Please refer to the LICENSE file.
+Please refer to the [LICENSE](LICENSE) file.
 
 ## Change Log
 ```
@@ -49,10 +39,9 @@ Section (6) of this README file explains the syntax of input files.
 More details about Therminator can be found in [1].
 
 ### Developers
-[Mohammad Javad Dousti](<dousti@usc.edu>)
-[Qing Xie](<xqing@usc.edu>)
-[Massoud Pedram](<pedram@usc.edu>)
-
+* [Mohammad Javad Dousti](<dousti@usc.edu>)
+* [Qing Xie](<xqing@usc.edu>)
+* [Massoud Pedram](<pedram@usc.edu>)
 
 
 ## Requirements
@@ -70,7 +59,7 @@ More details about Therminator can be found in [1].
   
 **Note**: Therminator can be run on Linux, Mac OS X and Windows given the above requirements 
       are properly installed. To install GCC on Windows, it is recommended to use MinGW
-      which can be obtained from [here](http://www.mingw.org.)
+      which can be obtained from [here](http://www.mingw.org).
  
 ## Installation
 1. Extract the downloaded terminator package.
