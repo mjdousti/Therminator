@@ -99,7 +99,7 @@ Therminator
 
     e) The component hierarchy specifies the components of interest. The properties
     of each component include:
-     * `coordinates` - numerical values. The coordinates (x, y, and z) are relative
+     * `coordinates`: numerical values. The coordinates (x, y, and z) are relative
         to the left-bottom corner of the device.
 
      * `dimensions`: numerical values. Length, width, and height of the component.
