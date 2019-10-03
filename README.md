@@ -1,42 +1,31 @@
-  _____  _                             _                _               
- |_   _|| |__    ___  _ __  _ __ ___  (_) _ __    __ _ | |_  ___   _ __ 
-   | |  | '_ \  / _ \| '__|| '_ ` _ \ | || '_ \  / _` || __|/ _ \ | '__|
-   | |  | | | ||  __/| |   | | | | | || || | | || (_| || |_| (_) || |   
-   |_|  |_| |_| \___||_|   |_| |_| |_||_||_| |_| \__,_| \__|\___/ |_|   
+# Therminator: Thermal Simulator for Portable Devices
 
-Therminator: Thermal Simulator for Portable Devices
-====================================================
+## CONTENTS
+1. License
+2. Change log
+3. Introduction
+4. Requirements
+5. Installation
+6. Usage
+7. Contact us
+8. Reference
 
-CONTENTS
-========
-	1) License
-	2) Change log
-	3) Introduction
-	4) Requirements
-	5) Installation
-	6) Usage
-	7) Contact us
-	8) Reference
-
-1) License
-============
+## 1) License
 Please refer to the LICENSE file.
 
-2) Change Log
-===============
-    Date   | Version |    Details
+## 2) Change Log
+```
+		Date   | Version |    Details
 ---------------------------------------------------------------------------------
  9/24/2014 |  v1.00  | Initial release.
 ---------------------------------------------------------------------------------
 11/13/2014 |  v1.01  | - Adding CUDA library path to Makefile for GPU processing
            |         | - Adding an assertion to check the components listed in
            |         |    the power trace file against the design file
+```
 
-
-3) Introduction
-=================
-Therminator
------------
+## Introduction
+### Therminator
 Therminator is a compact thermal modeling-based component-level thermal 
 simulator that targets small form-factor mobile devices (such as 
 smartphones). It produces temperature maps for all components, including 
@@ -59,16 +48,14 @@ Section (6) of this README file explains the syntax of input files.
 
 More details about Therminator can be found in [1].
 
-Developers
-----------
+### Developers
 Mohammad Javad Dousti <dousti@usc.edu>
 Qing Xie <xqing@usc.edu>
 Massoud Pedram <pedram@usc.edu>
 
 
 
-4) Requirements
-===============
+## Requirements
 - GNU build utilities (GCC 4+ and Make). 
   You are recommended to use Linux. In case you want to use Windows, make 
   sure to install MinGW or Cygwin.
@@ -85,11 +72,9 @@ Massoud Pedram <pedram@usc.edu>
   
 Note: Therminator can be run on Linux, Mac OS X and Windows given the above requirements 
       are properly installed. To install GCC on Windows, it is recommended to use MinGW
-      which can be obtained from here.
-      http://www.mingw.org
+      which can be obtained from [here](http://www.mingw.org.)
  
-5) Installation
-=================
+## Installation
 1. Extract the downloaded terminator package.
 
 2. Build Therminator with either of the following options:
@@ -104,10 +89,9 @@ Note: Therminator can be run on Linux, Mac OS X and Windows given the above requ
 	make clean
 
 
-6) Usage
-========
-Directories
------------
+## Usage
+### Directories
+```
 Therminator
 |--src
     |-- header
@@ -121,11 +105,10 @@ Therminator
     `-- Temperature_Results.txt -> Sample output file for the given GS4 and its power trace
 |-- LICENSE -> license file
 `-- README -> this file
+```
 
-
-Input files syntax
--------------------
-1. Design specification file (specs.xml)
+### Input files syntax
+1. Design specification file (`specs.xml`)
 	a) Two example files (package_GS4.xml and package_MDP.xml) have been provided 
 	along with the package of Therminator. You can basically follow them to specify 
 	a design specification.
@@ -190,8 +173,8 @@ Input files syntax
 	you need to provide the power consumption for each component in the 
 	floorplan. You can add column with name of 'floorplanname-componentname'.
 
-Running Therminator
--------------------
+### Running Therminator
+```
 usage: therminator -d <file> -p <file> -o <file>
 Therminator produces accurate temperature maps given the power consumption
 and physical characteristics.
@@ -199,22 +182,21 @@ and physical characteristics.
  -d <file>	Input design specification file name
  -p <file>	Input power trace file
  -o <file>	Output file
+```
 
-
-Example Outputs
----------------
+### Example Outputs
 Therminator outputs the temperature (in Celsius) of each sub-component in the 
 output results file. In case of multiple layers specified in the z-direction, 
 results on the top have the highest z value.
 
 For example, the provided design for Snapdragon_600 in the package_GS4.xml 
 has the resolution of 6x6x3 (a total of 108 subcomponents). Running 
-
-	$ ./therminator -d examples/package_GS4.xml -p examples/power_GS4.trace \
-		-o Temperature_Results.txt
-
+```
+$ ./therminator -d examples/package_GS4.xml -p examples/power_GS4.trace \
+	-o Temperature_Results.txt
+```
 gives this output:
-
+```
 y
 ^			z = 3 (top layer)
 |60.376		60.7172	61.0108	60.9561	60.8312	60.0348	
@@ -240,17 +222,15 @@ y
 |62.609		62.8749	63.0677	63.0367	62.8854	62.3235	
 |62.3428	62.5869	62.7584	62.73	62.5923	62.0925	
 -----------------------------------------------------> x
+```
 
-
-7) Contact us
-===============
+## Contact us
 If you have any question, find any bug, or encounter any problem when using
 Therminator, please contact Mohammad Javad Dousti <dousti@usc.edu> or Qing Xie 
 <xqing@usc.edu>.
 
 
-8) Reference
-==============
+## Reference
 [1] Qing Xie, Mohammad Javad Dousti, and Massoud Pedram, "Therminator: A
 Thermal Simulator for Smartphones Producing Accurate Chip and Skin Temperature
 Maps", in Proc. of the International Symposium on Low Power Electronics and 
