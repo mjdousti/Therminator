@@ -1,6 +1,6 @@
 # 
-#   Copyright (C) 2014 Mohammad Javad Dousti, Qing Xie, and Massoud Pedram, SPORT lab, 
-#   University of Southern California. All rights reserved.
+#   Copyright (C) 2021 Mohammad Javad Dousti, Qing Xie, Mahdi Nazemi,
+#   and Massoud Pedram. All rights reserved.
 #   
 #   Please refer to the LICENSE file for terms of use.
 #
@@ -8,6 +8,7 @@
 # Note that the columns are separated using the tab character.
 Snapdragon_600 DRAM	Display	Battery	4G-LTE	eMMC	WiFi	AudioCODEC
 2.25 0 0.75 0	0.25	0.25	0.25	0.25
+2.8 0 0.75 0	0.25	0.25	0.25	0.25
 #Snapdragon_600-cpu-core1	Snapdragon_600-cpu-core2	Snapdragon_600-cpu-core3	Snapdragon_600-cpu-core4	Snapdragon_600-gpu	 Snapdragon_600-rest-nw Snapdragon_600-rest-ne Snapdragon_600-rest-sw Snapdragon_600-rest-se DRAM	Display	Battery	4G-LTE	eMMC	WiFi	AudioCODEC
 #0.55 0.55 0.55 0.55	0.7	0	0	0	0	0	0	0 0 0 0 0
 #1.1 0 00.6 0 0.25 0.25 0.25 0.25

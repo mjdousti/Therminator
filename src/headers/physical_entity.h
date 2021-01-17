@@ -1,30 +1,32 @@
-/*
- * 
- * Copyright (C) 2014 Mohammad Javad Dousti, Qing Xie, and Massoud Pedram, SPORT lab, 
- * University of Southern California. All rights reserved.
- * 
+/**
+ *
+ * Copyright (C) 2021 Mohammad Javad Dousti, Qing Xie, Mahdi Nazemi,
+ * and Massoud Pedram. All rights reserved.
+ *
  * Please refer to the LICENSE file for terms of use.
- * 
-*/
+ *
+ */
 
-#ifndef PHYSICALENTITY_H_
-#define PHYSICALENTITY_H_
+#pragma once
 
 #include "entity.h"
 
-class PhysicalEntity: public Entity {
-	double length, width, height;
-	double x, y, z;
+class PhysicalEntity : public Entity {
+  VALUE length;
+  VALUE width;
+  VALUE height;
+  VALUE x;
+  VALUE y;
+  VALUE z;
+
 public:
-	double getLength();
-	double getWidth();
-	double getHeight();
-	double getX();
-	double getY();
-	double getZ();
+  inline VALUE getLength() { return length; }
+  inline VALUE getWidth() { return width; }
+  inline VALUE getHeight() { return height; }
+  inline VALUE getX() { return x; }
+  inline VALUE getY() { return y; }
+  inline VALUE getZ() { return z; }
 
-	PhysicalEntity(string name, double l, double w, double h, double x, double y, double z);
-	virtual ~PhysicalEntity();
+  PhysicalEntity(string name, VALUE l, VALUE w, VALUE h, VALUE x, VALUE y,
+                 VALUE z);
 };
-
-#endif /* PHYSICALENTITY_H_ */

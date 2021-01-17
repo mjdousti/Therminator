@@ -1,23 +1,21 @@
-/*
- * 
- * Copyright (C) 2014 Mohammad Javad Dousti, Qing Xie, and Massoud Pedram, SPORT lab, 
- * University of Southern California. All rights reserved.
- * 
+/**
+ *
+ * Copyright (C) 2021 Mohammad Javad Dousti, Qing Xie, Mahdi Nazemi,
+ * and Massoud Pedram. All rights reserved.
+ *
  * Please refer to the LICENSE file for terms of use.
- * 
-*/
+ *
+ */
 
-#ifndef ENTITY_H_
-#define ENTITY_H_
+#pragma once
+
 #include "general.h"
 
 class Entity {
-	string name;
-public:
-	Entity(string s);
-	string getName();
-	void setName(string s);
-	virtual ~Entity();
-};
+  string name;
 
-#endif /* ENTITY_H_ */
+public:
+  Entity(string s);
+  string getName();
+  void setName(string s);
+};

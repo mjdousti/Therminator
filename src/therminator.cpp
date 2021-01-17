@@ -1,97 +1,151 @@
-/*
- * 
- * Copyright (C) 2014 Mohammad Javad Dousti, Qing Xie, and Massoud Pedram, SPORT lab, 
- * University of Southern California. All rights reserved.
- * 
+/**
+ *
+ * Copyright (C) 2021 Mohammad Javad Dousti, Qing Xie, Mahdi Nazemi,
+ * and Massoud Pedram. All rights reserved.
+ *
  * Please refer to the LICENSE file for terms of use.
- * 
-*/
+ *
+ */
 
-#include "headers/general.h"
-#include "headers/parser.h"
 #include "headers/device.h"
+#include "headers/general.h"
 #include "headers/model.h"
+#include "headers/parser.h"
 
-void print_usage(char * argv0);
+void printUsage(char *argv0) {
+  cerr << "usage: therminator -d <file> -p <file> -o <file> [-t]" << endl;
+  cerr << "Therminator v2: A fast thermal simulator for portable devices"
+       << endl;
 
-int main(int argc, char** argv)
-{
-	/* Parsing the input parameters */
-	//Parser::parseCmdLine(argc,argv);
-	clock_t start, end;
-	double cpu_time_used;
-	start = clock();
-	string file_output, file_design, file_trace;
-	bool flag_designfile = false;
-	bool flag_tracefile = false;
-	bool flag_outfile = false;		
-	if (argc <= 1 || argv[1] == string("-h") || argv[1] == string("-help") || argv[1] == string("--help"))
-	{
-		print_usage(argv[0]);
-	}
-	/* First argument is the program name */
-	for (int i = 1; i < argc; i++)
-	{
-		if (argv[i] == string("-d"))
-		{
-			flag_designfile = true;
-			i++;
-			file_design.assign(argv[ i]);
-		}else if (argv[i] == string("-p"))
-		{
-			flag_tracefile = true;
-			i++;
-			file_trace.assign(argv[ i]);
-		}else if (argv[i] == string("-o"))
-		{
-			flag_outfile = true;
-			i++;
-			file_output.assign(argv[ i]);
-		}else{
-			cerr<<"Option "<<argv[i]<<" is not supported."<<endl;
-			print_usage(argv[0]);
-		}
-	}
-	if (flag_designfile == false || flag_tracefile == false || flag_outfile == false)
-	{
-		print_usage(argv[0]);
-	}
-	
-	Device* device=Parser::parseDevice(file_design, file_trace);
-	if (device == NULL){
-		return -1;
-	}
-
-	Model* model=new Model(device);
-	model->makeRModel();
-//	model->printGMatrix();
-	model->makePVector();
-//	model->printPVector();
-	model->solveT();
-	model->printComponentTemp(file_output);
-
-	end = clock();
-	cpu_time_used = ((double) (end - start)) / CLOCKS_PER_SEC;
-
-	//model->printPVector();
-
-	//double* T=model->findT();
-
-	delete(model);
-	cout<<endl<<"The program is finished successfully."<<endl;
-	cout<<endl<<"It took CPU time "<<cpu_time_used<<endl;
-	return 0;
-
+  cerr << " -d <file>\tInput design specification file" << endl;
+  cerr << " -p <file>\tInput power trace file" << endl;
+  cerr << " -o <file>\tOutput file" << endl;
+  cerr << " -t\t\tTransient analysis" << endl;
+  cerr << " -e\t\tExport internal matrices and vectors" << endl;
+  cerr << " -h\t\tShows this help menu" << endl;
+  exit(-1);
 }
 
-void print_usage(char * argv0)
-{
-	cerr <<"usage: therminator -d <file> -p <file> -o <file>"<<endl;
-	cerr <<"Therminator: Thermal Simulator for Portable Devices"<<endl;
+string FLAGS_output_file;
+string FLAGS_design_file;
+string FLAGS_trace_file;
+bool FLAGS_transient;
+bool FLAGS_export;
 
-	cerr <<" -h\t\tShows this help menu"<<endl;
-	cerr <<" -d <file>\tInput design specification file"<<endl;
-	cerr <<" -p <file>\tInput power trace file"<<endl;
-	cerr <<" -o <file>\tOutput file"<<endl;
-	exit(-1);
+void parseCMD(int argc, char **argv) {
+  bool flag_designfile = false;
+  bool flag_tracefile = false;
+  bool flag_outfile = false;
+
+  if (argc <= 1 || argv[1] == string("-h") || argv[1] == string("-help") ||
+      argv[1] == string("--help")) {
+    printUsage(argv[0]);
+  }
+
+  FLAGS_transient = false; // default is steady-state analysis
+  FLAGS_export = false;
+  /* First argument is the program name */
+  for (int i = 1; i < argc; i++) {
+    if (argv[i] == string("-d")) {
+      flag_designfile = true;
+      i++;
+      FLAGS_design_file.assign(argv[i]);
+    } else if (argv[i] == string("-p")) {
+      flag_tracefile = true;
+      i++;
+      FLAGS_trace_file.assign(argv[i]);
+    } else if (argv[i] == string("-o")) {
+      flag_outfile = true;
+      i++;
+      FLAGS_output_file.assign(argv[i]);
+    } else if (argv[i] == string("-t")) {
+      FLAGS_transient = true;
+    } else if (argv[i] == string("-e")) {
+      FLAGS_export = true;
+    } else {
+      cerr << "Option " << argv[i] << " is not supported." << endl;
+      printUsage(argv[0]);
+    }
+  }
+  if (!flag_designfile || !flag_tracefile || !flag_outfile) {
+    printUsage(argv[0]);
+  }
+}
+
+Model *initModel() {
+  Device *device = Parser::parseDevice(FLAGS_design_file, FLAGS_trace_file);
+  ASSERT(device != NULL, "Failed to create a device intance.\n");
+
+  Model *model = new Model(device, FLAGS_transient);
+  model->makeResistanceModel();
+
+  if (FLAGS_transient) {
+    model->makeCapacitanceModel();
+  }
+
+  return model;
+}
+
+unsigned int solveInitState(Model *model) {
+  auto requiredTempCount = model->read_power();
+
+  ASSERT(requiredTempCount != 0, "Power trace file doesn't contain any value.");
+
+  model->solveSteadyState();
+  if (FLAGS_transient) {
+    model->printComponentTemp(FLAGS_output_file, 0 /* step number */);
+  } else {
+    model->printComponentTemp(FLAGS_output_file);
+  }
+
+  return requiredTempCount;
+}
+
+void exportData(Model *model) {
+  if (!FLAGS_export) {
+    return;
+  }
+  model->printGMatrix(FLAGS_output_file + "_export_g_matrix");
+  if (FLAGS_transient) {
+    model->printInvCVector(FLAGS_output_file + "_export_inv_c");
+    model->printAMatrix(FLAGS_output_file + "_export_a_matrix");
+  }
+  model->printPVector(FLAGS_output_file + "_export_power");
+  model->printTVector(FLAGS_output_file + "_export_temperature");
+  model->printElementCount(FLAGS_output_file + "_export_count");
+}
+
+int main(int argc, char **argv) {
+  // Recording the start time of the program
+  auto start_time = std::chrono::high_resolution_clock::now();
+
+  /* Parsing the input parameters */
+  parseCMD(argc, argv);
+
+  auto model = initModel();
+  auto requiredTempCount = solveInitState(model);
+  exportData(model);
+
+  unsigned step_no = 1;
+  while (FLAGS_transient) {
+    auto count = model->read_power();
+    if (count == 0) {
+      // No more power trace exists.
+      break;
+    }
+    ASSERT(count == requiredTempCount,
+           "Expected to get " << requiredTempCount << " power traces, but got "
+                              << count << ".\n");
+    model->solveTransientState();
+    model->printComponentTemp(FLAGS_output_file, step_no++);
+  }
+  // Recording the end time of the program
+  auto end_time = std::chrono::high_resolution_clock::now();
+
+  delete (model);
+  // cout << "\nThe program is finished successfully.\n";
+  cout << std::fixed << std::setprecision(3)
+       << "\nTotal runtime: " << utils::calcElapsedTime(start_time, end_time)
+       << " s\n";
+  return 0;
 }

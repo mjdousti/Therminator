@@ -1,36 +1,56 @@
-/*
- * 
- * Copyright (C) 2014 Mohammad Javad Dousti, Qing Xie, and Massoud Pedram, SPORT lab, 
- * University of Southern California. All rights reserved.
- * 
+/**
+ *
+ * Copyright (C) 2021 Mohammad Javad Dousti, Qing Xie, Mahdi Nazemi,
+ * and Massoud Pedram. All rights reserved.
+ *
  * Please refer to the LICENSE file for terms of use.
- * 
-*/
+ *
+ */
 
-#ifndef GENERAL_HPP_
-#define GENERAL_HPP_
+#pragma once
 
-#include <iostream>
+#define VALUE float
+
+// Source: https://stackoverflow.com/a/3767883
+// Example: ASSERT(x < 10, "x was " << x);
+#define ASSERT(condition, message)                                             \
+  do {                                                                         \
+    if (!(condition)) {                                                        \
+      std::cerr << "Assertion `" #condition "` failed in " << __FILE__         \
+                << " line " << __LINE__ << ": " << message << "\n";            \
+      std::terminate();                                                        \
+    }                                                                          \
+  } while (false)
+
+#include <array>
+#include <chrono>
+#include <cmath>
+#include <cstddef>
 #include <cstdio>
 #include <cstdlib>
-#include <iterator>
-#include <cstddef>
-#include <string>
 #include <cstring>
-#include <map>
-#include <list>
-#include <queue>
-#include <limits>
-#include <sstream>
-#include <cmath>
 #include <fstream>
 #include <functional>
-#include <time.h>
+#include <iostream>
+#include <iterator>
+#include <limits>
+#include <list>
+#include <queue>
+#include <sstream>
+#include <string>
+#include <unordered_map>
 
-using namespace std;
 
-#ifndef USE_GPU
-#define USE_GPU 0
-#endif
+/* Boost libraries */
+#include <boost/algorithm/string.hpp>
+#include <boost/numeric/odeint.hpp>
 
-#endif /* GENERAL_HPP_ */
+using std::cout;
+using std::cerr;
+using std::endl;
+using std::vector;
+using std::string;
+using std::unordered_map;
+using std::list;
+using std::min;
+using std::max;

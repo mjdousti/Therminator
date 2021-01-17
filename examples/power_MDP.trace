@@ -1,10 +1,10 @@
 # 
-#   Copyright (C) 2014 Mohammad Javad Dousti, Qing Xie, and Massoud Pedram, SPORT lab, 
-#   University of Southern California. All rights reserved.
+#   Copyright (C) 2021 Mohammad Javad Dousti, Qing Xie, Mahdi Nazemi,
+#   and Massoud Pedram. All rights reserved.
 #   
 #   Please refer to the LICENSE file for terms of use.
 #
-# This is a power trace file for Samsung Galaxy S4
+# This is a power trace file for Qualcomm MSM8660 MDP
 # Note that the columns are separated using the tab character.
 MSM_8660	Display	Battery DRAM Main_Board eMMC GPS
 1.28	0.226	0.2	0.1	0.167 0 0

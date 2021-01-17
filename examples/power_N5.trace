@@ -1,0 +1,17 @@
+# 
+#   Copyright (C) 2021 Mohammad Javad Dousti, Qing Xie, Mahdi Nazemi,
+#   and Massoud Pedram. All rights reserved.
+#   
+#   Please refer to the LICENSE file for terms of use.
+#
+# This is a power trace file for Google Nexus 5.
+# Note that the columns are separated using the tab character.
+Snapdragon_800 DRAM	Display	Battery	Transceiver	eMMC	WiFi	AudioCODEC PMIC Main_Board
+2.25 0 0.75 0	0.25	0.25	0.25	0.25    0.02    0.02
+3.00 0 0.75 0	0.25	0.25	0.25	0.25    0.02    0.02
+#3.25 0 0.75 0	0.25	0.25	0.25	0.25    0.02    0.02
+#4.25 0 0.75 0	0.25	0.25	0.25	0.25    0.02    0.02
+#2.25 0 0.75 0	0.25	0.25	0.25	0.25    0.02    0.02
+#1.25 0 0.75 0	0.25	0.25	0.25	0.25    0.02    0.02
+#5.25 0 0.75 0	0.25	0.25	0.25	0.25    0.02    0.02
+

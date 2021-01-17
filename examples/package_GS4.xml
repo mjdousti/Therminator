@@ -1,12 +1,14 @@
-<!-- 
-   
-   Copyright (C) 2014 Mohammad Javad Dousti, Qing Xie, and Massoud Pedram, SPORT lab, 
-   University of Southern California. All rights reserved.
-   
-   Please refer to the LICENSE file for terms of use.
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+
+  Copyright (C) 2021 Mohammad Javad Dousti, Qing Xie, Mahdi Nazemi,
+  and Massoud Pedram. All rights reserved.
+
+  Please refer to the LICENSE file for terms of use.
 
 -->
-<?xml version="1.0" encoding="UTF-8"?>
+
 <device name="Samsung Galaxy S4">
 	<!-- Aspect ratio of the device body -->
 	<length>136.6e-3</length>
@@ -87,7 +89,7 @@
 			<!-- http://unitedadhesives.com/datasheets/TG2730-Datasheet.pdf -->
 			<normal_conductivity>2</normal_conductivity>
 			<density>1600</density>
-			<specific_heat></specific_heat>			
+			<specific_heat>800</specific_heat>			
 		</material>
 		<material name="plastic">
 			<!-- Acrylic plastic: Ref: http://www.engineeringtoolbox.com/thermal-conductivity-plastics-d_1786.html -->

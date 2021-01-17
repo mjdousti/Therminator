@@ -1,45 +1,42 @@
-/*
- * 
- * Copyright (C) 2014 Mohammad Javad Dousti, Qing Xie, and Massoud Pedram, SPORT lab, 
- * University of Southern California. All rights reserved.
- * 
+/**
+ *
+ * Copyright (C) 2021 Mohammad Javad Dousti, Qing Xie, Mahdi Nazemi,
+ * and Massoud Pedram. All rights reserved.
+ *
  * Please refer to the LICENSE file for terms of use.
- * 
-*/
+ *
+ */
 
-#ifndef UTILS_H_
-#define UTILS_H_
+#pragma once
+
+#include <Eigen/SparseCore>
+#include <Eigen/Core>
+
 #include "general.h"
 
-class Utils {
-public:
-	static double KtoC(double temp);
-	static bool isDouble(string const& s);
-	static void matrixCopy (double **dst, double **src, int row_no, int col_no);
-	static double** matrixAlloc (int row_no, int col_no);
-	static void matrixDealloc (double **matrix, int row_no);
-	static void dumpMatrix (double **matrix, int row_no, int col_no);
-	static void dumpVector (double *matrix, int row_no);
+// OpenMP header file
+#include <omp.h>
 
-	static bool eq(double a, double b);
-	static bool neq(double a, double b);
-	static bool less(double a, double b);
-	static bool le(double a, double b);
-	static bool ge(double a, double b);
-	static bool greater(double a, double b);
+#define NEGLIGIBLE_EPSILON 1e-5
 
+namespace utils {
+VALUE KtoC(VALUE temp);
 
-	/*template <class T>
-	static T next(T x);
+void dumpMatrix(const Eigen::SparseMatrix<VALUE>& matrix, const string& file_output);
+void dumpVector(const Eigen::Matrix<VALUE, Eigen::Dynamic, 1>& vec, const string& file_output);
 
-	template <class T, class Distance>
-	static T next(T x, Distance n);
+bool fileExists(const std::string &name);
 
-	template <class T>
-	static T prior(T x);
+VALUE calcElapsedTime(
+    const std::chrono::high_resolution_clock::time_point &start,
+    const std::chrono::high_resolution_clock::time_point &end);
 
-	template <class T, class Distance>
-	static T prior(T x, Distance n);*/
-};
+// Inline function for speed up.
+inline bool eq(VALUE a, VALUE b) { return fabs(a - b) < NEGLIGIBLE_EPSILON; }
+inline bool neq(VALUE a, VALUE b) { return !eq(a, b); }
+inline bool less(VALUE a, VALUE b) { return (b - a) > NEGLIGIBLE_EPSILON; }
+inline bool le(VALUE a, VALUE b) { return ((a < b) || eq(a, b)); }
+inline bool ge(VALUE a, VALUE b) { return ((a > b) || eq(a, b)); }
+inline bool greater(VALUE a, VALUE b) { return (a - b) > NEGLIGIBLE_EPSILON; }
 
-#endif /* UTILS_H_ */
+}; // namespace utils
