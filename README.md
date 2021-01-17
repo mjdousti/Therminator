@@ -11,17 +11,21 @@ More details about Therminator 2 can be found in [1].
 See [changelog](CHANGELOG.md) file for details.
 
 ## Requirements
-- Operating system: You are recommended to use Linux. In case you want to use Windows, we stronge encourage you to use [Windows Subsystem for Linux (WSL)](https://docs.microsoft.com/en-us/windows/wsl/about). We are going to update the project to support MacOS in near future.
+* Operating system: You are recommended to use Linux. In case you want to use Windows, we stronge encourage you to use [Windows Subsystem for Linux (WSL)](https://docs.microsoft.com/en-us/windows/wsl/about). We are going to update the project to support MacOS in near future.
 
-- GNU build utilities (GCC 5+ and Make).
+* GNU build utilities (G++ 5+ and Make).
 
-- Intel MKL
+* Intel MKL
 
-* The commands listed below are test in Ubuntu 20.10 but should work on other modern Linux distributions.
+* Eigen 3
+
+* Boost C++ Libraries
+
+**NOTE:** Commands listed below are tested in *Ubuntu 20.10*, but should work on other modern Linux distributions.
 
 ## Installation
 1. Clone the project using the following commnad.
-		git clone github.com/mjdousti/Therminator && cd Therminator
+		git clone https://github.com/mjdousti/Therminator && cd Therminator
 2. Install the requirements using this command:
 
         sudo apt install build-essential libmkl-dev libboost1.71-dev libeigen3-dev
@@ -159,9 +163,11 @@ This results in generations of two files:
 * Massoud Pedram
 
 ## Contact us
-If you have any question, find any bug, or encounter any problem when using Therminator 2, please contact Mohammad Javad Dousti (me [at] mjdousti [dot] com).
+If you have any question, find any bug, or encounter any problem when using Therminator 2, feel free to contact Mohammad Javad Dousti (`me [at] mjdousti [dot] com`).
 
-## Reference
+## References
+If you use Therminator, please ensure to cite the following papers:
+
 [1] Mohammad Javad Dousti, Qing Xie, Mahdi Nazemi, and Massoud Pedram, "Therminator 2: A Fast Thermal Simulator for Portable Devices," *IEEE Transactions on Computer-Aided Design of Integrated Circuits and Systems* (TCAD), Jan. 2021.
 
 [2] Qing Xie, Mohammad Javad Dousti, and Massoud Pedram, "Therminator 2: A Thermal Simulator for Smartphones Producing Accurate Chip and Skin Temperature Maps", in *Proc. of the International Symposium on Low Power Electronics and Design* (ISLPED), pp. 117-122, Aug. 2014.
