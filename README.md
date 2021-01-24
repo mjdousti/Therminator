@@ -158,10 +158,10 @@ This results in generations of two files:
 * `temperature_results.txt_1`: This file represents the transient-state thermal status of the device after 1 sec and due to the second power trace given in the file.
 
 ## Developers
-* Mohammad Javad Dousti
-* Qing Xie
+* [Mohammad Javad Dousti](https://www.mjdousti.com)
+* [Qing Xie](https://sportlab.usc.edu/~qingxie/)
 * Mahdi Nazemi
-* Massoud Pedram
+* [Massoud Pedram](https://mpedram.com/)
 
 ## Contact us
 If you have any question, find any bug, or encounter any problem when using Therminator 2, feel free to contact Mohammad Javad Dousti (`me [at] mjdousti [dot] com`).
@@ -169,9 +169,9 @@ If you have any question, find any bug, or encounter any problem when using Ther
 ## References
 If you use Therminator, please ensure to cite the following papers:
 
-[1] Mohammad Javad Dousti, Qing Xie, Mahdi Nazemi, and Massoud Pedram, "Therminator 2: A Fast Thermal Simulator for Portable Devices," *IEEE Transactions on Computer-Aided Design of Integrated Circuits and Systems* (TCAD), Jan. 2021.
+[1] Mohammad Javad Dousti, Qing Xie, Mahdi Nazemi, and Massoud Pedram, "[Therminator 2: A Fast Thermal Simulator for Portable Devices](https://www.mjdousti.com/papers/thermal/therminator2-tcad2021.pdf)," *IEEE Transactions on Computer-Aided Design of Integrated Circuits and Systems* (TCAD), Jan. 2021.
 
-[2] Qing Xie, Mohammad Javad Dousti, and Massoud Pedram, "Therminator 2: A Thermal Simulator for Smartphones Producing Accurate Chip and Skin Temperature Maps", in *Proc. of the International Symposium on Low Power Electronics and Design* (ISLPED), pp. 117-122, Aug. 2014.
+[2] Qing Xie, Mohammad Javad Dousti, and Massoud Pedram, "[Therminator: A Thermal Simulator for Smartphones Producing Accurate Chip and Skin Temperature Maps](https://www.mjdousti.com/papers/thermal/therminator-islped14.pdf)", in *Proc. of the International Symposium on Low Power Electronics and Design* (ISLPED), pp. 117-122, Aug. 2014.
 
 ## License
 Please refer to the [LICENSE](LICENSE) file.
