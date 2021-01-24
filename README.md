@@ -25,6 +25,7 @@ See [changelog](CHANGELOG.md) file for details.
 
 ## Installation
 1. Clone the project using the following commnad.
+
 		git clone https://github.com/mjdousti/Therminator && cd Therminator
 2. Install the requirements using this command:
 
