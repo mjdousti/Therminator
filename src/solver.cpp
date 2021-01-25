@@ -18,8 +18,8 @@
 
 #endif
 
-#include "headers/solver.h"
-#include "headers/utils.h"
+#include "headers/solver.hpp"
+#include "headers/utils.hpp"
 #include <omp.h>
 
 #if USE_GPU == 1

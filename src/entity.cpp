@@ -7,7 +7,7 @@
  *
  */
 
-#include "headers/entity.h"
+#include "headers/entity.hpp"
 
 Entity::Entity(string s) { setName(s); }
 string Entity::getName() { return name; }

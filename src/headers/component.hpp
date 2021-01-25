@@ -9,10 +9,10 @@
 
 #pragma once
 
-#include "floorplan.h"
-#include "material.h"
-#include "physical_entity.h"
-#include "subcomponent.h"
+#include "floorplan.hpp"
+#include "material.hpp"
+#include "physical_entity.hpp"
+#include "subcomponent.hpp"
 
 
 struct Resolution {

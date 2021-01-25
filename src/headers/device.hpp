@@ -9,12 +9,12 @@
 
 #pragma once
 
-#include "component.h"
-#include "floorplan.h"
-#include "general.h"
-#include "material.h"
-#include "physical_entity.h"
-#include "utils.h"
+#include "component.hpp"
+#include "floorplan.hpp"
+#include "general.hpp"
+#include "material.hpp"
+#include "physical_entity.hpp"
+#include "utils.hpp"
 
 class Device : public PhysicalEntity {
   unordered_map<string, Material *> materials;

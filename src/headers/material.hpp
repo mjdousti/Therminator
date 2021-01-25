@@ -9,8 +9,8 @@
 
 #pragma once
 
-#include "entity.h"
-#include "utils.h"
+#include "entity.hpp"
+#include "utils.hpp"
 
 class Material : public Entity {
   VALUE specific_heat, density, normal_conductiviy, planar_conductivity;

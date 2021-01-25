@@ -12,7 +12,7 @@
 #include <Eigen/SparseCore>
 #include <Eigen/Core>
 
-#include "general.h"
+#include "general.hpp"
 
 // OpenMP header file
 #include <omp.h>

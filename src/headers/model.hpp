@@ -12,10 +12,10 @@
 #include <Eigen/SparseCore>
 #include <Eigen/Core>
 
-#include "device.h"
-#include "general.h"
-#include "rc_utils.h"
-#include "utils.h"
+#include "device.hpp"
+#include "general.hpp"
+#include "rc_utils.hpp"
+#include "utils.hpp"
 
 /* model specific constants */
 /* changed from 1/2 to 1/3 due to the difference from traditional Elmore Delay

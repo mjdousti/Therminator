@@ -9,7 +9,7 @@
 
 #pragma once
 
-#include "general.h"
+#include "general.hpp"
 #include <vector>
 #include <Eigen/Core>
 #include <Eigen/Sparse>

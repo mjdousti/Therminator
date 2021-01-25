@@ -7,7 +7,7 @@
  *
  */
 
-#include "headers/floorplan.h"
+#include "headers/floorplan.hpp"
 
 Floorplan::Floorplan(string s) : Entity(s) {
 }

@@ -12,7 +12,7 @@
 #include <utility>
 #include <vector>
 
-#include "device.h"
+#include "device.hpp"
 
 typedef std::pair<SubComponent *, SubComponent *> subcomponent_pair;
 

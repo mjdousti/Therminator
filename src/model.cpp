@@ -7,9 +7,9 @@
  *
  */
 
-#include "headers/model.h"
-#include "headers/neighbor_components.h"
-#include "headers/solver.h"
+#include "headers/model.hpp"
+#include "headers/neighbor_components.hpp"
+#include "headers/solver.hpp"
 
 Model::Model(Device *d, bool isTransient) {
   pwr_consumers_cnt = 0;

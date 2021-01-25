@@ -7,7 +7,7 @@
  *
  */
 
-#include "headers/material.h"
+#include "headers/material.hpp"
 
 Material::Material(string s, VALUE specific_heat, VALUE density,
                    VALUE normal_conductiviy, VALUE planar_conductivity)

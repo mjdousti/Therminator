@@ -7,10 +7,10 @@
  *
  */
 
-#include "headers/device.h"
-#include "headers/general.h"
-#include "headers/model.h"
-#include "headers/parser.h"
+#include "headers/device.hpp"
+#include "headers/general.hpp"
+#include "headers/model.hpp"
+#include "headers/parser.hpp"
 
 void printUsage(char *argv0) {
   cerr << "usage: therminator -d <file> -p <file> -o <file> [-t]" << endl;

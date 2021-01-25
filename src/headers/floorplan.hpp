@@ -9,8 +9,8 @@
 
 #pragma once
 
-#include "entity.h"
-#include "subcomponent.h"
+#include "entity.hpp"
+#include "subcomponent.hpp"
 
 class Floorplan : public Entity {
   vector<SubComponent *> subComponents;

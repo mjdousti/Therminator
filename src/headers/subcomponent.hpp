@@ -9,7 +9,7 @@
 
 #pragma once
 
-#include "physical_entity.h"
+#include "physical_entity.hpp"
 
 class Component;
 

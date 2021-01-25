@@ -29,7 +29,7 @@ See [changelog](CHANGELOG.md) file for details.
 		git clone https://github.com/mjdousti/Therminator && cd Therminator
 2. Install the requirements using this command:
 
-        sudo apt install build-essential libmkl-dev libboost1.71-dev libeigen3-dev
+        sudo apt install build-essential libmkl-dev libboost-dev libeigen3-dev
 2. Build Therminator 2 with the following option:
 
         make -j

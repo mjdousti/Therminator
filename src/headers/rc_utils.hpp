@@ -10,9 +10,9 @@
 #pragma once
 
 
-#include "device.h"
-#include "physical_entity.h"
-#include "utils.h"
+#include "device.hpp"
+#include "physical_entity.hpp"
+#include "utils.hpp"
 
 #include <iostream>
 

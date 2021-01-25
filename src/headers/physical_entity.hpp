@@ -9,7 +9,7 @@
 
 #pragma once
 
-#include "entity.h"
+#include "entity.hpp"
 
 class PhysicalEntity : public Entity {
   VALUE length;

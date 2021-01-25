@@ -7,7 +7,7 @@
  *
  */
 
-#include "headers/device.h"
+#include "headers/device.hpp"
 #include <algorithm>
 #include <tuple>
 #include <unordered_set>

@@ -9,7 +9,7 @@
 
 #pragma once
 
-#include "general.h"
+#include "general.hpp"
 
 class Entity {
   string name;

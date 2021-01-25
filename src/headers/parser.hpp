@@ -10,9 +10,9 @@
 #pragma once
 
 
-#include "device.h"
-#include "general.h"
-#include "subcomponent.h"
+#include "device.hpp"
+#include "general.hpp"
+#include "subcomponent.hpp"
 
 #include "../libs/pugixml/pugixml.hpp"
 

@@ -8,7 +8,7 @@
  */
 
 
-#include "headers/utils.h"
+#include "headers/utils.hpp"
 
 // Eigen::IOFormat OctaveFmt(Eigen::StreamPrecision, Eigen::DontAlignCols, ", ", ";\n", "", "", "[", "]");
 Eigen::IOFormat OctaveFmt(Eigen::StreamPrecision, Eigen::DontAlignCols, " ", "\n", "", "", "", "");

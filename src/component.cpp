@@ -7,7 +7,7 @@
  *
  */
 
-#include "headers/component.h"
+#include "headers/component.hpp"
 
 Component::Component(string s, VALUE l, VALUE w, VALUE h, VALUE x, VALUE y,
                      VALUE z)

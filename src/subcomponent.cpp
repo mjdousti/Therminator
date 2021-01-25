@@ -7,7 +7,7 @@
  *
  */
 
-#include "headers/subcomponent.h"
+#include "headers/subcomponent.hpp"
 
 SubComponent::SubComponent(string s, VALUE l, VALUE w, VALUE h, VALUE x,
                            VALUE y, VALUE z, Component *c)

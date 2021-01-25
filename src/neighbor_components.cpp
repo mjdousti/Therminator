@@ -13,9 +13,9 @@
 #include <unordered_set>
 #include <utility>
 
-#include "headers/general.h"
-#include "headers/neighbor_components.h"
-#include "headers/utils.h"
+#include "headers/general.hpp"
+#include "headers/neighbor_components.hpp"
+#include "headers/utils.hpp"
 
 // Open intervals should be sorted and assessed before the close intervals.
 enum class IntervalType { open = 0, close = 1 };

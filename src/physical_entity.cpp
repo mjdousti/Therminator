@@ -7,7 +7,7 @@
  *
  */
 
-#include "headers/physical_entity.h"
+#include "headers/physical_entity.hpp"
 
 PhysicalEntity::PhysicalEntity(string s, VALUE l, VALUE w, VALUE h, VALUE x,
                                VALUE y, VALUE z)

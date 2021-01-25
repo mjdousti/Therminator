@@ -7,7 +7,7 @@
  *
  */
 
-#include "headers/parser.h"
+#include "headers/parser.hpp"
 
 Device *Parser::parseDevice(const string& design, const string& trace) {
   string name;

@@ -7,7 +7,7 @@
  *
  */
  
-#include "headers/rc_utils.h"
+#include "headers/rc_utils.hpp"
 #include <omp.h>
 
 VALUE RCutils::calcThermalConductivity(VALUE k, VALUE thickness,
